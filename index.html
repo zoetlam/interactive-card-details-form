@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Interactive card details form</title>
+  <!-- Google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <!-- Core CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="align-items-center">
+  <main class="container page-hero d-flex align-items-center justify-content-center">
+    <div class="row align-items-center">
+      <section class="col-lg-6 mt-5 card bg-transparent">
+            <div id="front-card" class="">
+                <h3 class="f-num">0000 0000 0000 0000</h3>
+                <span id="name" class="text-uppercase">Jane Appleseed</span>
+                <span class="cvc"><span class="f-month">00</span>/<span class="f-year">00</span></span>
+            </div>
+            <div id="back-card">
+              <h6 class="b-cvc">000</h6>
+            </div>
+      </section>
+
+
+      <section class="col-lg-4 mt-5 align-items-center info">
+        <div class="align-items-center">
+          <h5>Cardholder Name</h5>
+          <input type="text" name="fullname" id="fullName" placeholder="e.g. Jane Appleseed">
+          <!-- wrong -->
+          <p class="text-danger check num-card-text">wrong</p>
+
+          <h5>Card Number</h5>
+          <input type="text" name="card" id="cardNum" placeholder="e.g. 1234 5678 9123 0000">
+          <!-- wrong -->
+          <p class="text-danger check num-card-text">wrong</p>
+
+          <div class="row">
+            <div class="col-6">
+              <h5>Exp. Date (MM/YY)</h5>
+              <input type="text" name="month" id="month" placeholder="MM">
+              <input type="text" name="year" id="year" placeholder="YY">
+            </div>
+            <div class="col-6">
+              <h5>CVC</h5>
+              <input type="text" name="cvc" id="cvc" placeholder="e.g. 123">
+            </div>
+          </div>
+          <button class="btn btn-primary">Confirm</button>
+        </section>  
+          <!-- Completed state start -->
+        <section class="invisible">
+            <h1>Thank you!</h1>
+            <p>We've added your card details</p>
+            <a class="btn">Continue</a>
+        </section>
+      
+      
+
+    </div>
+  </main>
+  <!-- footer -->
+  <div class="attribution">
+  Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+  Coded by <a href="https://github.com/zoetlam">Zoe Thi Lam</a>.
+  </div>
+  <script src="js/scripts.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  
+  
+</body>
+</html>

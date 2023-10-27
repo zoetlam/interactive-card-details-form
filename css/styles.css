@@ -1,0 +1,85 @@
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+/* font-family: 'Space Grotesk', sans-serif; */
+body{
+    width: 1440px;
+    background-image: url(../assets/images/bg-main-desktop.png);
+    background-repeat: no-repeat;
+    font-family: 'Space Grotesk', sans-serif;
+    height: 100vh;
+}
+main{
+    min-height: 95vh;
+}
+.check{
+
+}
+.card{
+    color: white;
+    border: none;
+}
+#front-card{
+    background-image: url(../assets/images/bg-card-front.png);
+    height: 245px;
+    width: 447px;
+    position: relative;
+    margin-left: 5%;
+}
+#front-card h3, #front-card #name, #front-card .cvc , #back-card h6 {
+    position: absolute;
+}
+#front-card h3{
+    letter-spacing: 3px;
+    top: 60%;
+    left: 9%;
+}
+#front-card #name, #front-card .cvc{
+    text-transform: uppercase;
+    top: 85%;
+}
+#name{
+    left: 9%;
+}
+.cvc{
+    right: 10%;
+}
+#back-card{
+    margin-top: 40px;
+    margin-left: 20%;
+    background-image: url(../assets/images/bg-card-back.png);
+    background-repeat: no-repeat;
+    height: 245px;
+    width: 447px;
+    color: aliceblue;
+    position: relative;
+    box-shadow: 10px black;
+}
+#back-card h6{
+    top: 45%;
+    right: 12%;
+}
+
+input{
+    
+    width: 100%;
+    border-radius: 10px;
+    height: 30px;
+    border: 1px solid hsl(279, 6%, 55%);
+    padding: 20px
+}
+#month, #year{
+    width: 40%;
+}
+.info h5{
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.invisible{
+    height: 0;
+    width:0
+}
+
+
