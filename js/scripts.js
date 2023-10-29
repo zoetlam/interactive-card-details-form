@@ -79,24 +79,27 @@ inputs.forEach(element => {
         //input 3 cant be blank and must be number without space
         //input 4 cant be blank and must be number without space
           
-        (inputs[0].value == '') ? holder.lastElementChild.innerHTML = "can't be blank" : holder.lastElementChild.innerHTML = '';
-        (inputs[1].value == '') ? card.lastElementChild.innerHTML = "can't be blank" : holder.lastElementChild.innerHTML = '';
-        (inputs[2].value == '' || inputs[3].value == '') ? date.lastElementChild.innerHTML = "can't be blank" : date.lastElementChild.innerHTML = "";
-        (inputs[4].value == '') ? cvc.lastElementChild.innerHTML = "can't be blank" : holder.lastElementChild.innerHTML = '';
+        (inputs[0].value === '') ? holder.lastElementChild.innerHTML = "can't be blank" : holder.lastElementChild.innerHTML = '';
+        (inputs[1].value === '') ? card.lastElementChild.innerHTML = "can't be blank" : errorType(this);
+        (inputs[2].value === '' || inputs[3].value == '') ? date.lastElementChild.innerHTML = "can't be blank" : errorType(this);
+        (inputs[4].value === '') ? cvc.lastElementChild.innerHTML = "can't be blank" : errorType(this);
 
-        if(!(this == inputs[0])){
-            if(!checkNumberWithoutSpace(this.value)){ 
-                parentInput.lastElementChild.innerHTML = 'Wrong format, numbers only';
-                this.classList.add('border-danger');
-            } else{
-                parentInput.lastElementChild.innerHTML = '';
-                this.classList.remove('border-danger')
-            };
-        } 
+
     });
   });
 
-
+function errorType(element){
+    const parentInput = element.parentElement;
+    if(!(element == inputs[0])){
+        if(!checkNumberWithoutSpace(element.value)){ 
+            parentInput.lastElementChild.innerHTML = 'Wrong format, numbers only';
+            element.classList.add('border-danger');
+        } else{
+            parentInput.lastElementChild.innerHTML = '';
+            element.classList.remove('border-danger')
+        };
+    } 
+}
 function checkValid(){
 }
 
