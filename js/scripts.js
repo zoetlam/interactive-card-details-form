@@ -11,10 +11,6 @@ function checkNumberWithoutSpace(element){
     element = element.toString();
     return /^\d+$/.test(element);
 }
-function noBlank(a){
-    a.lastElementChild.innerHTML = "can't be blank";
-}
-
 
 function getValue(id, change, maxValue){
     //limit letter in input field
@@ -33,7 +29,7 @@ function getValue(id, change, maxValue){
         value = addSpacesToNumber(value);
     }
     // add value from input to card
-    document.querySelector(change).innerHTML = value;
+    return document.querySelector(change).innerText = value;
 }
 
 function addSpacesToNumber(number) {
@@ -43,6 +39,9 @@ function addSpacesToNumber(number) {
     return groups.join(' ');
 }
 
+function noBlank(a){
+    return a.lastElementChild.innerText = "can't be blank"; 
+}
 
 
 inputs.forEach(element => {
@@ -50,8 +49,14 @@ inputs.forEach(element => {
         const parentInput = this.parentElement;
         let inputId = this.id;
         let limitNumber = 0;
-        noBlank(holder)
-        
+
+        //check Bank space and input Validation
+        (inputs[0].value === '') ? noBlank(holder) : holder.lastElementChild.innerHTML = '';
+        (inputs[1].value === '') ? noBlank(card) : errorType(this);
+        (inputs[2].value === '' || inputs[3].value === '') ? noBlank(date) : errorType(this);
+        (inputs[4].value === '') ? noBlank(cvc) : errorType(this);
+
+        // show up on card
         if(inputId == 'cardNum'){
             limitNumber = 16;
             getValue(inputId, ".f-num", limitNumber);
@@ -68,21 +73,8 @@ inputs.forEach(element => {
             limitNumber = 3;
             getValue(inputId, ".b-cvc", limitNumber);
         }
-
-        
-
-        
-        //check Input Validation
-        //input 0 cant be blank
-        //input 1 cant be blank and must be number without space
-        //input 2 cant be blank and must be number without space
-        //input 3 cant be blank and must be number without space
-        //input 4 cant be blank and must be number without space
           
-        (inputs[0].value === '') ? holder.lastElementChild.innerHTML = "can't be blank" : holder.lastElementChild.innerHTML = '';
-        (inputs[1].value === '') ? card.lastElementChild.innerHTML = "can't be blank" : errorType(this);
-        (inputs[2].value === '' || inputs[3].value == '') ? date.lastElementChild.innerHTML = "can't be blank" : errorType(this);
-        (inputs[4].value === '') ? cvc.lastElementChild.innerHTML = "can't be blank" : errorType(this);
+        
 
 
     });
@@ -92,16 +84,15 @@ function errorType(element){
     const parentInput = element.parentElement;
     if(!(element == inputs[0])){
         if(!checkNumberWithoutSpace(element.value)){ 
-            parentInput.lastElementChild.innerHTML = 'Wrong format, numbers only';
+            parentInput.lastElementChild.innerText = 'Wrong format, numbers only';
             element.classList.add('border-danger');
         } else{
-            parentInput.lastElementChild.innerHTML = '';
+            parentInput.lastElementChild.innerText = '';
             element.classList.remove('border-danger')
         };
     } 
 }
-function checkValid(){
-}
+
 
 
 
