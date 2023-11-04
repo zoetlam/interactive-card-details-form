@@ -56,7 +56,8 @@ inputs.forEach(element => {
         // show up on card
         if(this.id == 'cardNum'){
             limitNumber = 16;
-            changeInnerHtml(".card-num", addSpacesToNumber(getValue(this.id, limitNumber)));
+            this.value = getValue(this.id, limitNumber);
+            changeInnerHtml(".card-num", addSpacesToNumber(this.value));
         }
         if(this.id == 'fullName'){
             limitNumber = 2;
@@ -64,15 +65,18 @@ inputs.forEach(element => {
         }
         if(this.id == 'month'){
             limitNumber = 2;
-            changeInnerHtml(".f-month", getValue(this.id, limitNumber));
+            this.value = getValue(this.id, limitNumber);
+            changeInnerHtml(".f-month", this.value);
         }
         if(this.id == 'year'){
             limitNumber = 2;
-            changeInnerHtml(".f-year", getValue(this.id, limitNumber))
+            this.value = getValue(this.id, limitNumber);
+            changeInnerHtml(".f-year", this.value)
         }
         if(this.id == 'cvc'){
             limitNumber = 3;
-            changeInnerHtml(".b-cvc", getValue(this.id, limitNumber));
+            this.value = getValue(this.id, limitNumber);
+            changeInnerHtml(".b-cvc", this.value);
         }
     });
   });
@@ -99,6 +103,20 @@ function errorType(element){
         if(!checkNumberWithoutSpace(element.value)){ 
             parentInput.lastElementChild.innerText = 'Wrong format, numbers only';
             element.classList.add('border-danger');
+        } else if(element == inputs[1]){
+            if ((element.value).length < 16){
+                parentInput.lastElementChild.innerText = 'Please insert 16 digits';
+            } else{
+                parentInput.lastElementChild.innerText = '';
+            }
+        } else if(element == inputs[2]){
+            if ((element.value).length < 2){
+                parentInput.lastElementChild.innerText = 'Please insert 2 digits';
+            } else if((element.value > 12)||(element.value == 0)){
+                parentInput.lastElementChild.innerText = 'Sorry month must in 1 to 12 range';
+            } else{
+                parentInput.lastElementChild.innerText = '';
+            }
         } else{
             parentInput.lastElementChild.innerText = '';
             element.classList.remove('border-danger')
