@@ -12,7 +12,7 @@ function checkNumberWithoutSpace(element){
     return /^\d+$/.test(element);
 }
 
-function getValue(id, change, maxValue){
+function getValue(id, maxValue){
     //limit letter in input field
     let inputElement = document.getElementById(id);
     inputElement.addEventListener('input', function() {
@@ -25,13 +25,11 @@ function getValue(id, change, maxValue){
     if (value.length > maxValue) {
             value = value.slice(0, maxValue);
     }
-    if (id == 'cardNum'){
-        value = addSpacesToNumber(value);
-    }
-    // add value from input to card
-    return document.querySelector(change).innerText = value;
+    return value;
 }
-
+function changeInnerHtml(change, a){
+    return document.querySelector(change).innerText = a;
+}
 function addSpacesToNumber(number) {
     let numberString = number.toString();
     // Split the string into groups of four digits
@@ -59,29 +57,45 @@ inputs.forEach(element => {
         // show up on card
         if(inputId == 'cardNum'){
             limitNumber = 16;
-            getValue(inputId, ".f-num", limitNumber);
+            changeInnerHtml(".card-num", addSpacesToNumber(getValue(inputId, limitNumber)));
         }
         if(inputId == 'fullName'){
-            let a = document.querySelector("#fullName").value;
-            document.querySelector("#name").innerHTML = a;
-        }
-        if((inputId == 'month')||(inputId == 'year')){
             limitNumber = 2;
-            (inputId == 'month')? getValue(inputId, ".f-month", limitNumber) : getValue(inputId, ".f-year", limitNumber);;
+            changeInnerHtml("#name", document.querySelector("#fullName").value);
+        }
+        if(inputId == 'month'){
+            limitNumber = 2;
+            changeInnerHtml(".f-month", getValue(inputId, limitNumber));
+        }
+        if(inputId == 'year'){
+            limitNumber = 2;
+            changeInnerHtml(".f-year", getValue(inputId, limitNumber))
         }
         if(inputId == 'cvc'){
             limitNumber = 3;
-            getValue(inputId, ".b-cvc", limitNumber);
+            changeInnerHtml(".b-cvc", getValue(inputId, limitNumber));
         }
-          
-        
-
-
     });
   });
 
 function errorType(element){
     const parentInput = element.parentElement;
+    let inputId = element.id;
+    let limitNumber = 0;
+
+    if(inputId == 'cardNum'){
+        limitNumber = 16;
+        element.value = getValue(inputId, limitNumber);
+    }
+    if((inputId == 'month')||(inputId == 'year')){
+        limitNumber = 2;
+        element.value = getValue(inputId, limitNumber);
+    }
+    if(inputId == 'cvc'){
+        limitNumber = 3;
+        element.value = getValue(inputId, limitNumber);
+    }
+    //change element value
     if(!(element == inputs[0])){
         if(!checkNumberWithoutSpace(element.value)){ 
             parentInput.lastElementChild.innerText = 'Wrong format, numbers only';
