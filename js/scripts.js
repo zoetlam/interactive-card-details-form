@@ -45,7 +45,6 @@ function noBlank(a){
 inputs.forEach(element => {
     element.addEventListener('input', function(){
         const parentInput = this.parentElement;
-        let inputId = this.id;
         let limitNumber = 0;
 
         //check Bank space and input Validation
@@ -55,25 +54,25 @@ inputs.forEach(element => {
         (inputs[4].value === '') ? noBlank(cvc) : errorType(this);
 
         // show up on card
-        if(inputId == 'cardNum'){
+        if(this.id == 'cardNum'){
             limitNumber = 16;
-            changeInnerHtml(".card-num", addSpacesToNumber(getValue(inputId, limitNumber)));
+            changeInnerHtml(".card-num", addSpacesToNumber(getValue(this.id, limitNumber)));
         }
-        if(inputId == 'fullName'){
+        if(this.id == 'fullName'){
             limitNumber = 2;
-            changeInnerHtml("#name", document.querySelector("#fullName").value);
+            changeInnerHtml("#name", this.value);
         }
-        if(inputId == 'month'){
+        if(this.id == 'month'){
             limitNumber = 2;
-            changeInnerHtml(".f-month", getValue(inputId, limitNumber));
+            changeInnerHtml(".f-month", getValue(this.id, limitNumber));
         }
-        if(inputId == 'year'){
+        if(this.id == 'year'){
             limitNumber = 2;
-            changeInnerHtml(".f-year", getValue(inputId, limitNumber))
+            changeInnerHtml(".f-year", getValue(this.id, limitNumber))
         }
-        if(inputId == 'cvc'){
+        if(this.id == 'cvc'){
             limitNumber = 3;
-            changeInnerHtml(".b-cvc", getValue(inputId, limitNumber));
+            changeInnerHtml(".b-cvc", getValue(this.id, limitNumber));
         }
     });
   });
@@ -82,7 +81,7 @@ function errorType(element){
     const parentInput = element.parentElement;
     let inputId = element.id;
     let limitNumber = 0;
-
+    //get limit input value base on each input
     if(inputId == 'cardNum'){
         limitNumber = 16;
         element.value = getValue(inputId, limitNumber);
