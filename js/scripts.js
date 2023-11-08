@@ -42,6 +42,32 @@ function noBlank(a){
     return a.lastElementChild.innerText = "can't be blank"; 
 
 }
+function showUp(a){
+    if(a.id == 'cardNum'){
+        limitNumber = 16;
+        a.value = getValue(a.id, limitNumber);
+        changeInnerHtml(".card-num", addSpacesToNumber(a.value));
+    }
+    if(a.id == 'fullName'){
+        limitNumber = 2;
+        changeInnerHtml("#name", a.value);
+    }
+    if(a.id == 'month'){
+        limitNumber = 2;
+        a.value = getValue(a.id, limitNumber);
+        changeInnerHtml(".f-month", a.value);
+    }
+    if(a.id == 'year'){
+        limitNumber = 2;
+        a.value = getValue(a.id, limitNumber);
+        changeInnerHtml(".f-year", a.value)
+    }
+    if(a.id == 'cvc'){
+        limitNumber = 3;
+        a.value = getValue(a.id, limitNumber);
+        changeInnerHtml(".b-cvc", a.value);
+    }
+}
 
 
 inputs.forEach(element => {
@@ -50,30 +76,7 @@ inputs.forEach(element => {
         let limitNumber = 0;
 
         // show up on card
-        if(this.id == 'cardNum'){
-            limitNumber = 16;
-            this.value = getValue(this.id, limitNumber);
-            changeInnerHtml(".card-num", addSpacesToNumber(this.value));
-        }
-        if(this.id == 'fullName'){
-            limitNumber = 2;
-            changeInnerHtml("#name", this.value);
-        }
-        if(this.id == 'month'){
-            limitNumber = 2;
-            this.value = getValue(this.id, limitNumber);
-            changeInnerHtml(".f-month", this.value);
-        }
-        if(this.id == 'year'){
-            limitNumber = 2;
-            this.value = getValue(this.id, limitNumber);
-            changeInnerHtml(".f-year", this.value)
-        }
-        if(this.id == 'cvc'){
-            limitNumber = 3;
-            this.value = getValue(this.id, limitNumber);
-            changeInnerHtml(".b-cvc", this.value);
-        }
+        showUp(this);
 
 
         //check Bank space and input Validation
@@ -143,6 +146,13 @@ function errorType(element){
 
 
 function checkValid(){
+    
+    if (inputs[2].value > 12 || inputs[2].value == 0){
+        date.lastElementChild.innerText = 'Sorry month must in 1 to 12 range'
+    }
+    if (inputs[3].value < 23 || inputs[3].value == 0){
+        date.lastElementChild.innerText = 'Sorry year must greater than 23';
+    }
     if ((inputs[0].value === '') &&
         (inputs[1].value === '') &&
         (inputs[2].value === '') &&
@@ -153,17 +163,20 @@ function checkValid(){
             noBlank(date);
             noBlank(cvc);
     }
+    
     for(i = 0; i < check.length; i++){
         arr.push(check[i].innerText);
     }
     console.log(arr);
-    console.log(arr.every(ele => ele === ''));
+    if(arr.every(ele => ele === '')){
+        document.querySelector('#info').classList.add('invisible');
+        document.querySelector('#success').classList.remove('invisible');
+    };
     arr = [];
 }
 
-function backAgain(){
-    document.querySelector('#info').classList.remove('invisible');
-    document.querySelector('#success').classList.add('invisible');
+function reload(){
+    window.location.reload();
 }
 
 
