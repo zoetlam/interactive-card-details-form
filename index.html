@@ -18,24 +18,23 @@
 </head>
 <body class="">
   <main class="container page-hero d-flex align-items-center">
-    <div class="row align-items-center">
-      <section class="col-lg-6 mt-5 card bg-transparent">
-            <div id="front-card" class="">
-                <h3 class="card-num">0000 0000 0000 0000</h3>
-                <span id="name" class="text-uppercase">Jane Appleseed</span>
-                <span class="cvc"><span class="f-month">00</span>/<span class="f-year">00</span></span>
-            </div>
-            <div id="back-card">
-              <h6 class="b-cvc">000</h6>
-            </div>
+    <div class="row align-items-center mx-auto container-fluid">
+      <section class="col-lg-6 card bg-transparent">
+        <div id="front-card" class="">
+            <h3 class="card-num">0000 0000 0000 0000</h3>
+            <span id="name" class="text-uppercase">Jane Appleseed</span>
+            <span class="cvc"><span class="f-month">00</span>/<span class="f-year">00</span></span>
+        </div>
+        <div id="back-card">
+          <h6 class="b-cvc">000</h6>
+        </div>
       </section>
 
-
-      <section class="mx-auto col-lg-4 mt-5 align-items-center info">
+      <section id="info" class="mx-auto col-lg-4 mt-5 align-items-center">
         <div class="align-items-center">
           <div class="info-name">  
             <h5>Cardholder Name</h5>
-            <input type="text" name="fullname" id="fullName" placeholder="e.g. Jane Appleseed" >
+            <input type="text" name="full-name" id="fullName" placeholder="e.g. Jane Appleseed" >
             <!-- wrong -->
             <p class="text-danger check num-card-text"></p>
           </div>
@@ -58,17 +57,17 @@
               <p class="text-danger check num-card-text"></p>
             </div>
           </div>
+          <a class="btn btn-primary btn-lg btn-block" onclick="checkValid()">Confirm</a>
         </div>
-        <a class="btn btn-primary btn-lg btn-block">Confirm</a>
+        
       </section>   
           <!-- Completed state start -->
-      <section class="invisible">
-          <h1>Thank you!</h1>
-          <p>We've added your card details</p>
-          <a class="btn">Continue</a>
+      <section id ="success" class="mx-auto col-lg-4 invisible">
+        <img src="assets/images/icon-complete.svg" alt="check-icon">
+        <h1>Thank you!</h1>
+        <p>We've added your card details</p>
+        <a class="btn btn-primary btn-lg btn-block" onclick="backAgain()">Continue</a>
       </section>
-      
-      
 
     </div>
   </main>
