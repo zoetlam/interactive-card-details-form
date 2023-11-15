@@ -110,10 +110,14 @@ input{
     color: hsl(279, 6%, 55%);
 }
 
-@media screen and (max-width: 767px){
+@media screen and (max-width: 1180px){
     body{
         background-image: url(../assets/images/bg-main-mobile.png);
         background-repeat:repeat-x;
+    }
+    #month, #year{
+        font-size:14px;
+        width: 45%;
     }
     .cards{
         height: 200px;
@@ -142,7 +146,6 @@ input{
     .front-card-wrap{
         z-index: 1;
         top: 10%;
-        
     }
     .back-card-wrap{
         top: 5%;

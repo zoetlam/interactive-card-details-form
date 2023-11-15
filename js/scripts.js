@@ -43,6 +43,8 @@ function noBlank(a){
 
 }
 function showUp(a){
+    let originalValue = ['0000 0000 0000 0000','Jane Appleseed','00','00','000'];
+    let changePlace = ['cardNum','fullName','month','year','cvc'];
     if(a.id == 'cardNum'){
         limitNumber = 16;
         a.value = getValue(a.id, limitNumber);
