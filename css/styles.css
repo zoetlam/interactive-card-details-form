@@ -1,4 +1,4 @@
-.attribution { font-size: 11px; text-align: center; }
+.attribution { font-size: 11px; text-align: center;}
 .attribution a { color: hsl(228, 45%, 44%); }
 
 /* font-family: 'Space Grotesk', sans-serif; */
@@ -23,18 +23,27 @@ main{
     margin-top: 5px;
     font-size: 0.8rem;
 }
-.card{
+.cards{
+    margin: 0 auto;
     color: white;
     border: none;
 }
+.front-card-wrap, .back-card-wrap{
+    height: 245px;
+    width: 440px;
+}
+#front-card, #back-card{
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    position: relative;
+}
 #front-card{
     background-image: url(../assets/images/bg-card-front.png);
-    height: 245px;
-    width: 447px;
-    position: relative;
     margin-left: 5%;
+    background-size: cover;
 }
-#front-card h3, #front-card #name, #front-card .cvc , #back-card h6 {
+#front-card h3, #front-card #name, #front-card .cvc , #back-card h6, .card-logo {
     position: absolute;
 }
 #front-card h3{
@@ -52,15 +61,17 @@ main{
 .cvc{
     right: 10%;
 }
+.card-logo{
+    top: 10%;
+    left: 5%;
+}
 #back-card{
     margin-top: 40px;
     margin-left: 20%;
     background-image: url(../assets/images/bg-card-back.png);
     background-repeat: no-repeat;
-    height: 245px;
-    width: 447px;
+    background-size: cover;
     color: aliceblue;
-    position: relative;
     box-shadow: 10px black;
 }
 #back-card h6{
@@ -91,4 +102,55 @@ input{
     background-color: hsl(278, 68%, 11%);
 }
 
+#success h2{
+    margin: 7% auto 3%;
+    letter-spacing: 5px;
+}
+#success p{
+    color: hsl(279, 6%, 55%);
+}
+
+@media screen and (max-width: 767px){
+    body{
+        background-image: url(../assets/images/bg-main-mobile.png);
+        background-repeat:repeat-x;
+    }
+    .cards{
+        height: 200px;
+        width: 100%;
+        margin: 0 auto;
+        margin-bottom: 10px;
+    }
+    #front-card, #back-card{
+        margin-top: 0;
+        height: 100%;
+        width: 100%;
+        border-radius: 10px;
+        margin-left: 0;
+    }
+    .front-card-wrap, .back-card-wrap{
+        position: absolute;
+        font-size: 80%;
+        height: 147px;
+        width: 264px;
+    }
+    .front-card-wrap h3{
+        font-size: 0.95rem;
+        left: 7%;
+    }
+
+    .front-card-wrap{
+        z-index: 1;
+        top: 10%;
+        
+    }
+    .back-card-wrap{
+        top: 5%;
+        margin-left: 18%;
+    }
+    
+    #name{
+        left: 7%;
+    }
+}
 

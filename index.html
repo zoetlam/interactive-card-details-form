@@ -19,14 +19,19 @@
 <body class="">
   <main class="container page-hero d-flex align-items-center">
     <div class="row align-items-center mx-auto container-fluid">
-      <section class="col-lg-6 card bg-transparent">
-        <div id="front-card" class="">
-            <h3 class="card-num">0000 0000 0000 0000</h3>
-            <span id="name" class="text-uppercase">Jane Appleseed</span>
-            <span class="cvc"><span class="f-month">00</span>/<span class="f-year">00</span></span>
+      <section class="col-lg-6 cards bg-transparent">
+        <div class="front-card-wrap">
+          <div id="front-card" class="">
+              <img src="assets/images/card-logo.svg" alt="card-logo" class="card-logo">
+              <h3 class="card-num">0000 0000 0000 0000</h3>
+              <span id="name" class="text-uppercase">Jane Appleseed</span>
+              <span class="cvc"><span class="f-month">00</span>/<span class="f-year">00</span></span>
+          </div>
         </div>
-        <div id="back-card">
-          <h6 class="b-cvc">000</h6>
+        <div class="back-card-wrap">  
+          <div id="back-card">
+            <h6 class="b-cvc">000</h6>
+          </div>
         </div>
       </section>
 
@@ -62,9 +67,9 @@
         
       </section>   
           <!-- Completed state start -->
-      <section id ="success" class="mx-auto col-lg-4 invisible">
+      <section id ="success" class="mx-auto col-lg-4  align-content-center text-center invisible">
         <img src="assets/images/icon-complete.svg" alt="check-icon">
-        <h1>Thank you!</h1>
+        <h2 class="text-uppercase">Thank you!</h2>
         <p>We've added your card details</p>
         <a class="btn btn-primary btn-lg btn-block" onclick="reload()">Continue</a>
       </section>

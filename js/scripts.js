@@ -153,6 +153,9 @@ function checkValid(){
     if (inputs[3].value < 23 || inputs[3].value == 0){
         date.lastElementChild.innerText = 'Sorry year must greater than 23';
     }
+    if ((!checkNumberWithoutSpace(inputs[2].value))||(!checkNumberWithoutSpace(inputs[3].value))){
+        date.lastElementChild.innerText = 'Wrong format, numbers only';
+    }
     if ((inputs[0].value === '') &&
         (inputs[1].value === '') &&
         (inputs[2].value === '') &&
